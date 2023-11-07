@@ -1,0 +1,26 @@
+{
+  "name": "klusterbud",
+  "version": "1.0.0",
+  "description": "OSP Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oslabs-beta/KlusterBud.git"
+  },
+  "author": "Christopher Lu, Michael Wang, Asher Mitchell-Smith, Fredy Rubio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oslabs-beta/KlusterBud/issues"
+  },
+  "homepage": "https://github.com/oslabs-beta/KlusterBud#readme",
+  "devDependencies": {
+    "electron": "^27.0.3"
+  },
+  "dependencies": {
+    "react": "^18.2.0"
+  }
+}
