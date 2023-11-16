@@ -6,6 +6,8 @@ const app = express();
 
 app.listen(port);
 
+app.use('/', express.static(path.resolve(__dirname, '../client')))
+
 app.get('/', (req, res) => {
     res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'));
 })

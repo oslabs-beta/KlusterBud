@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="main.js"></script>
     <meta charset="UTF-8" />
     <meta
       http-equiv="Content-Security-Policy"
@@ -15,7 +16,8 @@
   <body>
     <h1>Hello from Electron renderer! This is KlusterBud! Our OSP!</h1>
     <p>👋</p>
+      <input id="queryString" placeholder="type query">
+      <button id = "submit">query prometheus</button>
     <p id="info"></p>
   </body>
-  <script src="./renderer.js"></script>
 </html>
