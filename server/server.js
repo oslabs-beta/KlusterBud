@@ -4,19 +4,28 @@ const bodyParser = require('body-parser');
 
 // const queryController = require('./controllers/queryController');
 
-const port = 3333;
+const PORT = 3000;
 const app = express();
 
-app.listen(port);
 
-app.use(bodyParser.urlencoded());
-app.use(bodyParser.text());
+
+app.listen(PORT, console.log(`Listening on PORT: ${PORT}`));
+
+app.use(express.json());
+app.use(express.urlencoded())
+
+// app.use(bodyParser.urlencoded());
+// app.use(bodyParser.text());
 
 app.use('/', express.static(path.resolve(__dirname, '../client')))
 
 app.get('/', (req, res) => {
-    res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'));
+    return res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'));
 })
+
+// app.get('/', (req, res) => {
+//     res.status(200).sendFile(path.resolve(__dirname, '../client/app.jsx'));
+// })
 
 app.get('/query/:string', (req, res) => {
     console.log('/QUERY ROUTE IS RUNNING', req.params.string)
