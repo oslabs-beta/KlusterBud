@@ -8,6 +8,17 @@ import { LogContainer } from "./LogContainer";
 import { DropDownContainer } from "./DropDownContainer";
 
 const MainContainer = () => {
+    const query = () => {
+        const url = '/query/container_cpu_usage_seconds_total'
+        console.log(url)
+        //http://localhost:3000/query/up
+        fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('info').innerText = JSON.stringify(data, null, 2);
+        })
+        .catch(err => console.log('ERROR:', err))
+    }
     return (
     <>
         <Container>
@@ -16,7 +27,7 @@ const MainContainer = () => {
         </Container>
         <Container>
             <Router>
-                <Button />
+                <Button onClick={query}/>
                 <LogContainer />
             </Router>
         </Container>

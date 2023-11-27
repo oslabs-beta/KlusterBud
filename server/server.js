@@ -1,6 +1,8 @@
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
+const queryController = require('./controller/queryController')
+const RSController = require('./controller/RSController')
 
 // const queryController = require('./controllers/queryController');
 
@@ -23,23 +25,20 @@ app.get('/', (req, res) => {
     return res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'));
 })
 
-// app.get('/', (req, res) => {
-//     res.status(200).sendFile(path.resolve(__dirname, '../client/app.jsx'));
-// })
+app.get('/watchRS', (req, res) => {
+    //also grab the specific name of the replica set we are watching from params or smthn
+    res.status(200).json({result: {
+        anomaly: true,
+        nodeID: "destroy-prod-86568647b5-7w5l2"
+    }})
+})
 
-app.get('/query/:string', (req, res) => {
-    console.log('/QUERY ROUTE IS RUNNING', req.params.string)
-    fetch('http://localhost:9090/api/v1/query?query=' + req.params.string)
-    // .then(data => data.json())
-    // .then(data => console.log(data.data.result))
-    // .then(data => res.status(200).json(data))
-    .then(response => response.json())
-    .then(data => {
-        console.log(data.data.result);
-        // Send only the data.data.result part to the client
-        res.status(200).json({ result: data.data.result });
-    })
-    
+app.get('/loadRS', RSController.fetch, (req, res) => {
+    res.status(200).json({result: res.locals.replicaSets})
+})
+
+app.get('/query/:string', queryController.fetch, queryController.sort, (req, res) => {
+    res.status(200).json({ result: res.locals.pod })
 })
 
 // app.get('/query', queryController.fetch, (req, res) => {
