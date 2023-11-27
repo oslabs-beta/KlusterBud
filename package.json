@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server/server.js"
+    "start": "NODE_ENV=production nodemon server/index.js",
+    "build": "NODE_ENV=production webpack",
+    "dev": "NODE_ENV=development nodemon server/server.js & NODE_ENV=development webpack serve --open",
+    "dev-server": "NODE_ENV=development webpack-dev-server --open --hot & NODE_ENV=development nodemon server/server.js"
   },
   "repository": {
     "type": "git",
@@ -32,6 +35,13 @@
     "body-parser": "^1.20.2",
     "express": "^4.18.2",
     "nodemon": "^3.0.1",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "bootstrap": "^5.3.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "react-bootstrap": "^2.9.1",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.17.0",
+    "webpack": "^5.89.0"
   }
 }
