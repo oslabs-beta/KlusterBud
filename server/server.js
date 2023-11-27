@@ -17,7 +17,7 @@ app.use(express.urlencoded())
 // app.use(bodyParser.urlencoded());
 // app.use(bodyParser.text());
 
-app.use('/', express.static(path.resolve(__dirname, '../client')))
+app.use('/', express.static(path.resolve(__dirname, '../dist')))
 
 app.get('/', (req, res) => {
     return res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'));

@@ -1,7 +1,7 @@
 import React from "react";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 
-export const ReplicaSetSelector = () => {
+export const DropdownMenu = () => {
     return (
         <DropdownButton id='replicaset-select-button' title='Select Replica Set'>
             <Dropdown.Item href='#/node1'>First Node</Dropdown.Item>
