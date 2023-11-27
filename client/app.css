@@ -1,0 +1,57 @@
+*{
+    font-family: 'Ubuntu Light', 'Century Gothic', sans-serif;
+}
+
+
+#klusterbud{
+   
+}
+
+#title{
+    text-align: center;
+    background-color: #296de8;
+    color: white;
+}
+
+#watchContainer{
+    text-align: center;
+}
+.watchButton{
+    justify-content: center;
+    background-color: #296de8;
+}
+
+#replicaset-select{
+    
+    /* justify-content: center; */
+}
+
+#logcontainer{
+    display: flex;
+    justify-content: center;
+}
+
+#dropdown-container{
+    text-align: center;
+    justify-content: center;
+}
+
+#usage{
+    display: flex;
+    justify-content: space-between;
+}
+
+#nodeid{
+    
+}
+
+#cpu-header{
+    margin: 0;
+}
+
+#usage-details{
+ display: flex;
+}
+#pulled-usage-details{
+    
+}
