@@ -10,8 +10,9 @@ import { NodeIDContainer } from "./NodeIDContainer";
 
 //possibly delete button on line 24?
 const MainContainer = () => {
-    const [value, setValue] =useState('')
-    const [responseData, setResponseData] =useState(null)
+    const [replicaSets,  setReplicaSets] = useState([]);
+    const [selectedRS, setSelectedRS] = useState('')
+
     const query = () => {
         const url = '/query/container_cpu_usage_seconds_total'
         console.log(url)
@@ -23,25 +24,41 @@ const MainContainer = () => {
         })
         .catch(err => console.log('ERROR:', err))
     }
-    return (
-    <>
-        <Container >
-            <div><h1 id='title'>KLUSTERBUD is the Best!</h1> </div>
-            
-            <DropDownContainer key1={'value'} key2={'value'} key3={'value'}/>
-        </Container>
-        <Container>
-          
-            <Router>
-                <div id="watchContainer"><Button className="watchButton" onClick={() => console.log('Start Watching Button Functionality')}>Start Watching</Button></div>
-                <NodeIDContainer />
-                <Button onClick={query}/>
-                <LogContainer />
-            </Router>
-           
-        </Container>
-    </>
-    )
+
+    useEffect(() => {
+        function getRS() {
+            fetch('/loadRS')
+            .then(response => response.json())
+            .then(data => {
+                setReplicaSets(data.result);
+                document.getElementById('info').innerText = JSON.stringify(data.result, null, 2);
+            })
+            .catch(err => console.log('ERROR:', err))
+        }
+        getRS();
+    }, [])
+    
+        return (
+            <>
+                <Container >
+                    <div><h1 id='title'>KLUSTERBUD is the Best!</h1> </div>
+                    
+                    <DropDownContainer selectedRS={selectedRS} setSelectedRS={setSelectedRS} replicaSets={replicaSets}/>
+                </Container>
+                <Container>
+                  <h1>
+                    {selectedRS}
+                  </h1>
+                    <Router>
+                        <div id="watchContainer"><Button className="watchButton" onClick={() => console.log('Start Watching Button Functionality')}>Start Watching</Button></div>
+                        <NodeIDContainer />
+                        <Button onClick={query}/>
+                        <LogContainer />
+                    </Router>
+                   
+                </Container>
+            </>
+        )
 }
 
 export default MainContainer;
