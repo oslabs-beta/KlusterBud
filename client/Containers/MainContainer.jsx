@@ -8,7 +8,7 @@ import { LogContainer } from "./LogContainer";
 import { DropDownContainer } from "./DropDownContainer";
 import { NodeIDContainer } from "./NodeIDContainer";
 
-//possibly delete button on line 24?
+//possibly delete button on line 36?
 const MainContainer = () => {
     const [value, setValue] =useState('')
     const [responseData, setResponseData] =useState(null)
