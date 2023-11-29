@@ -62,6 +62,8 @@ const MainContainer = () => {
         .then(response => response.json())
         .then(data => {
         if(data.abnormalNodeFound === true){
+            setAbnormalNode(data.result)
+            setMedianTime(data.median)
             clearInterval(watchInterval);
             setWatchInterval(null);
         }else{
