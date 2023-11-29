@@ -16,7 +16,7 @@ html{
    display: flex;
    justify-content: center;
    align-self: center;
-   color: black;
+   color: rgb(0, 0, 0);
    font-family: 'Brush Script MT', cursive;
    font-size: 700%;
 }
@@ -80,8 +80,8 @@ html{
 }
 
 #replica-menu{
-    background-color: #296de8;
-    color: white;
+    background-color: white;
+    color: #296de8;
     border-radius: 5%;
 }
 
