@@ -1,94 +1,128 @@
-*{
+/* Global Styles */
+* {
     font-family: 'Ubuntu Light', 'Century Gothic', sans-serif;
-    color: rgb(0, 0, 0);
-}
-#root{
-    background: linear-gradient(0deg, #ffffff 0%, #296de8 100%) !important;
-}
-html{
-    /* background: linear-gradient(30deg, #ffffff 0%, #296de8 100%) !important; */
-    background-color: rgba(0,0,0,0);
-}
-.container{
-    background-color: rgba(0,0,0,0);
-}
-#klusterbud{
-   display: flex;
-   justify-content: center;
-   align-self: center;
-   color: black;
-   font-family: 'Brush Script MT', cursive;
-   font-size: 700%;
-}
-#info{
-    background-color: rgba(0,0,0,0);
-}
-#title{
-    text-align: center;
-    background-color: rgba(0,0,0,0);
-    color: rgb(0, 0, 0);
+    color: #1b1b1b;
 }
 
-#watchContainer{
-    text-align: center;
-    background-color: rgba(0,0,0,0);
-}
-.watchButton{
-    justify-content: center;
-    background-color: #296de8;
-    box-shadow: 5px 5px 10px 1px #919191;
+/* html {
+    background-color: #f0f0f0;
+} */
+
+body {
+    background-color: rgb(255, 248, 238);
 }
 
-#replicaset-select{
-    background-color: rgba(0,0,0,0);
-    /* justify-content: center; */
+/* Container Styles */
+.container {
+    background-color: transparent;
+    padding-top: 10px;
+    margin-top: 10px;
 }
 
-#logcontainer{
+#MainContainer {
+    background-color: #e4eaff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styles */
+#klusterbud {
     display: flex;
     justify-content: center;
-    background-color: rgba(0,0,0,0);
-
+    align-items: center;
+    color: #3498db;
+    font-size: 3rem;
 }
 
-#dropdown-container{
+#TitleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#title {
+    text-align: center;
+    color: #333;
+}
+
+/* Watch Container Styles */
+#watchContainer {
+    text-align: center;
+    background-color: transparent;
+    /* border: 2px solid #333; */
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.watchButton {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.watchButton:hover {
+    background-color: #2980b9;
+}
+
+/* Dropdown Styles */
+#replicaset-select,
+#replica-menu,
+#default-dropdown {
+    background-color: #3498db;
+    /* color: #fff; */
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#default-dropdown {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Log Container Styles */
+#logcontainer {
+    display: flex;
+    justify-content: center;
+}
+
+#dropdown-container {
     text-align: center;
     justify-content: center;
 }
 
-#usage{
+/* Usage Styles */
+#usage {
     display: flex;
     justify-content: space-between;
-    background-color: rgba(0,0,0,0);
+    background-color: transparent;
+    margin-top: 20px;
 }
 
-#nodeid{
-    background-color: rgba(0,0,0,0);
+#nodeid,
+#cpu-header,
+#usage-details,
+#pulled-usage-details {
+    background-color: transparent;
 }
 
-#cpu-header{
-    margin: 0;
-    background-color: rgba(0,0,0,0);
+/* Modern Card Styles */
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+    transition: box-shadow 0.3s ease-in-out;
 }
 
-#usage-details{
- display: flex;
- background-color: rgba(0,0,0,0);
-}
-#pulled-usage-details{
-    background-color: rgba(0,0,0,0);
-}
-
-#replica-menu{
-    background-color: #296de8;
-    color: white;
-    border-radius: 5%;
-}
-
-#default-dropdown{
-    background-color: #296de8;
-    color: white;
-    border-radius: 5%;
-    box-shadow: 5px 5px 10px 1px #919191;
-    
+.card:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
