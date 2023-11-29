@@ -1,34 +1,54 @@
 *{
     font-family: 'Ubuntu Light', 'Century Gothic', sans-serif;
+    color: rgb(0, 0, 0);
 }
-
-
+#root{
+    background: linear-gradient(0deg, #ffffff 0%, #296de8 100%) !important;
+}
+html{
+    /* background: linear-gradient(30deg, #ffffff 0%, #296de8 100%) !important; */
+    background-color: rgba(0,0,0,0);
+}
+.container{
+    background-color: rgba(0,0,0,0);
+}
 #klusterbud{
-   
+   display: flex;
+   justify-content: center;
+   align-self: center;
+   color: black;
+   font-family: 'Brush Script MT', cursive;
+   font-size: 700%;
 }
-
+#info{
+    background-color: rgba(0,0,0,0);
+}
 #title{
     text-align: center;
-    background-color: #296de8;
-    color: white;
+    background-color: rgba(0,0,0,0);
+    color: rgb(0, 0, 0);
 }
 
 #watchContainer{
     text-align: center;
+    background-color: rgba(0,0,0,0);
 }
 .watchButton{
     justify-content: center;
     background-color: #296de8;
+    box-shadow: 5px 5px 10px 1px #919191;
 }
 
 #replicaset-select{
-    
+    background-color: rgba(0,0,0,0);
     /* justify-content: center; */
 }
 
 #logcontainer{
     display: flex;
     justify-content: center;
+    background-color: rgba(0,0,0,0);
+
 }
 
 #dropdown-container{
@@ -39,19 +59,36 @@
 #usage{
     display: flex;
     justify-content: space-between;
+    background-color: rgba(0,0,0,0);
 }
 
 #nodeid{
-    
+    background-color: rgba(0,0,0,0);
 }
 
 #cpu-header{
     margin: 0;
+    background-color: rgba(0,0,0,0);
 }
 
 #usage-details{
  display: flex;
+ background-color: rgba(0,0,0,0);
 }
 #pulled-usage-details{
+    background-color: rgba(0,0,0,0);
+}
+
+#replica-menu{
+    background-color: #296de8;
+    color: white;
+    border-radius: 5%;
+}
+
+#default-dropdown{
+    background-color: #296de8;
+    color: white;
+    border-radius: 5%;
+    box-shadow: 5px 5px 10px 1px #919191;
     
 }

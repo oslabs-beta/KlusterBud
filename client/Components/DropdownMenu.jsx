@@ -8,8 +8,8 @@ export const DropdownMenu = (props) => {
         props.setSelectedRS(selectedValue)
     }
     return (
-        <select onChange={handleSelect} value={props.selectedRS}>
-            <option value ="">
+        <select id='default-dropdown' onChange={handleSelect} value={props.selectedRS}>
+            <option id='replica-menu' value ="">
                 select a replica set
             </option>
             {props.replicaSets.map((value, index) => (

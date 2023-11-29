@@ -7,6 +7,7 @@ import { ReplicaSetSelector } from "../Components/DropdownMenu";
 import { LogContainer } from "./LogContainer";
 import { DropDownContainer } from "./DropDownContainer";
 import { NodeIDContainer } from "./NodeIDContainer";
+import logo from '../images/Logo.png';
 
 //possibly delete button on line 36?
 const MainContainer = () => {
@@ -41,7 +42,9 @@ const MainContainer = () => {
         return (
             <>
                 <Container >
-                    <div><h1 id='title'>KLUSTERBUD is the Best!</h1> </div>
+                    <div id='title'>
+                        <img src={logo} alt="" width={100} height={100}/>
+                    </div>
                     
                     <DropDownContainer selectedRS={selectedRS} setSelectedRS={setSelectedRS} replicaSets={replicaSets}/>
                 </Container>
