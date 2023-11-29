@@ -16,6 +16,7 @@ RSController.fetch = (req, res, next) => {
           res.locals.replicaSets = replicaSets;
           return next();
       })
+    .catch(err => {console.log(err)})
 }
 
 module.exports = RSController;
