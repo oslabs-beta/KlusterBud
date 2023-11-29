@@ -38,7 +38,7 @@ app.get('/loadRS', RSController.fetch, (req, res) => {
 })
 
 app.get('/query/:string', queryController.fetch, queryController.sort, (req, res) => {
-    res.status(200).json({ result: res.locals.pod })
+    res.status(200).json({ result: res.locals.pod, median: res.locals.medianSec, abnormalNodeFound: res.locals.errorFound })
 })
 
 // app.get('/query', queryController.fetch, (req, res) => {

@@ -11,7 +11,10 @@ import { NodeIDContainer } from "./NodeIDContainer";
 //possibly delete button on line 24?
 const MainContainer = () => {
     const [replicaSets,  setReplicaSets] = useState([]);
-    const [selectedRS, setSelectedRS] = useState('')
+    const [selectedRS, setSelectedRS] = useState('');
+    const [abnormalNode, setAbnormalNode] = useState('');
+    const [medianTime, setMedianTime] = useState('');
+    const [watchInterval, setWatchInterval] = useState(null);
 
     const query = () => {
         const url = '/query/container_cpu_usage_seconds_total'
@@ -37,7 +40,36 @@ const MainContainer = () => {
         }
         getRS();
     }, [])
-    
+
+    const handleWatchButtonClick = () => {
+        if(watchInterval){
+            clearInterval(watchInterval);
+            setWatchInterval(null)
+            setAbnormalNode("")
+            setMedianTime("")
+        } else {
+            handleAbnormalNode();
+            const intervalId = setInterval(()=> {
+                handleAbnormalNode();
+            },3000);
+            setWatchInterval(intervalId);
+        }
+    };
+
+    const handleAbnormalNode = () => {
+        fetch(`/query/${selectedRS}`)
+        .then(response => response.json())
+        .then(data => {
+        if(data.abnormalNodeFound === true){
+            clearInterval(watchInterval);
+            setWatchInterval(null);
+        }else{
+        setAbnormalNode(data.result)
+        setMedianTime(data.median)}
+        })
+        .catch(err => console.log('ERROR:', err))
+    }
+
         return (
             <>
                 <Container >
@@ -49,8 +81,14 @@ const MainContainer = () => {
                   <h1>
                     {selectedRS}
                   </h1>
+                  <h1>
+                    {abnormalNode}
+                  </h1>
+                  <h1>
+                    {medianTime}
+                  </h1>
                     <Router>
-                        <div id="watchContainer"><Button className="watchButton" onClick={() => console.log('Start Watching Button Functionality')}>Start Watching</Button></div>
+                        <div id="watchContainer"><Button className="watchButton" onClick={handleWatchButtonClick}>{watchInterval ? "Stop Watching" : "Start Watching"}</Button></div>
                         <NodeIDContainer />
                         <Button onClick={query}/>
                         <LogContainer />
