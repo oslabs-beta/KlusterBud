@@ -1,8 +1,12 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
-export const NodeID = () => {
+export const NodeID = (props) => {
     return(
     //insert logic to pull node ID
-    'Insert Node ID Here'
+    <>
+    {props.abnormalNode !== null && (
+    <div>Abnormal Node: {props.abnormalNode}</div>
+    )}
+    </>
     )
 }

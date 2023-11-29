@@ -29,33 +29,41 @@ queryController.sort = (req, res, next) => {
   res.locals[req.params.string] = RSPods;
   //from every key in RSPods, compare key[1]
   function medianArr(arr){
-    arr.sort((a,b) => a - b)
+    arr.sort(function(a, b) {
+        return a - b;
+    });
 
-    const length = arr.length;
-    let median;
-    if(length % 2 === 0){
-      const mid1 = arr[length/2-1];
-      const mid2 = arr[length/2];
-      median = (mid1+mid2)/2;
-    }else {
-      median = arr[Math.floor(length/2)];
+    var n = arr.length;
+    var median;
+
+    if (n % 2 === 0) {
+        var midLeft = arr[n / 2 - 1];
+        var midRight = arr[n / 2];
+        median = (midLeft + midRight) / 2;
+    } else {
+        median = arr[Math.floor(n / 2)];
     }
 
     return median;
   }
-  const median = medianArr(Object.values(RSPods))
+  const median = medianArr(Object.values(RSPods).map(ele => ele[1]))
   console.log(median)
+  
 
   console.log(RSPods)
   // console.log(RSPods["destroy-prod-86568647b5-8pvvt"][1] )
   for(const key in RSPods){
-    if(RSPods[key][1] > (2*median[1]) ){
+    if(RSPods[key][1] > (2*median) ){
       res.locals.pod = key
+      res.locals.medianSec = median
+      res.locals.errorFound = true
       console.log(res.locals.pod)
       return next();
     } 
   }
   res.locals.pod = 'no anomalies found yet...'
+  res.locals.medianSec = median
+  res.locals.errorFound = false
   return next();
 };
 

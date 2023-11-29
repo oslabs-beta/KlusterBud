@@ -6,12 +6,12 @@ import { UsageDetails } from "../Components/UsageDetails";
 
 
 
-export const LogContainer = ({ value, responseData }) => {
+export const LogContainer = (props) => {
     return(
         <div id='logcontainer'>
             <Container>
-                <UsageDisplay/>
-                <UsageDetails/>
+                <UsageDisplay medianTime={props.medianTime} abnormalNode={props.abnormalNode}/>
+                {/* <UsageDetails/> */}
             </Container>
         </div>
     )
