@@ -8,7 +8,7 @@ export const DropDownContainer = (props) => {
     return(
         <div id="dropdown-container">
             <Container>
-                <DropdownMenu key1={props.key1}/>
+                <DropdownMenu selectedRS={props.selectedRS} setSelectedRS={props.setSelectedRS} replicaSets={props.replicaSets}/>
             </Container>
         </div>
     )
