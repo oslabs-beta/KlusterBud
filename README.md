@@ -1,5 +1,5 @@
 <p align='center'>
-    <img src='./client/images/Logo.png' alt='klusterbudlogo' width='100px' height='100px'>
+    <img src='./client/images/logo.png' alt='klusterbudlogo' width='100px' height='100px'>
 </p>
 <h1 text align ='center'>KlusterBud<h1>
 
