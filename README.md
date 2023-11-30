@@ -48,12 +48,16 @@ Users can select from a dropdown menu of common metrics needed to effectivly run
   - ```js
     npm install
     npm run build
-    npm run dev
+    npm start
     ```
 
 - Select node from drop down menu
 
 ## Demo
+
+<p align='center'>
+<img src='./client/images/KlusterGif-Animated Image (Large).gif'>
+<p>
 
 ## Publications
 
@@ -61,7 +65,7 @@ Users can select from a dropdown menu of common metrics needed to effectivly run
 
 ## Website
 
-### Check out our [Website]() and [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)]()
+### Check out our [Website]() and [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/company/klusterbud)
 
 ## Contributors:
 
