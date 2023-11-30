@@ -25,14 +25,13 @@ body {
     border-radius: 8px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
-
-/* Header Styles */
-#klusterbud {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #3498db;
-    font-size: 3rem;
+#klusterbud{
+   display: flex;
+   justify-content: center;
+   align-self: center;
+   color: black;
+   font-family: 'Brush Script MT', cursive;
+   font-size: 700%;
 }
 
 #TitleContainer {
@@ -123,6 +122,16 @@ body {
     transition: box-shadow 0.3s ease-in-out;
 }
 
-.card:hover {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+#usage-details{
+ display: flex;
+ background-color: rgba(0,0,0,0);
+}
+#pulled-usage-details{
+    background-color: rgba(0,0,0,0);
+}
+
+#replica-menu{
+    background-color: #296de8;
+    color: white;
+    border-radius: 5%;
 }
