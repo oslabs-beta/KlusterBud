@@ -23,12 +23,6 @@
 
 </div>
 
-## About Klusterbud
-
-KlusterBud makes PromQL queries to the user's running instance of prometheus, collecting metrics from nodes and comparing them to other nodes within the same replica set. When an anomaly is found, the identifying information of the node is served back to the user.
-Users can choose from a dropdown list of replica sets in their cluster, and start watching for any anomalies.
-
-
 ## Table of Contents
 
 - [About KlusterBud](#about-klusterbud)
