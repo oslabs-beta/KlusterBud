@@ -3,7 +3,7 @@
 </p>
 <h1 text align ='center'>KlusterBud<h1>
 
-#### Klusterbud is a Kubernetes developers tool used to detect anomalies in the performance of nodes within a replica set.
+<h4 text align ='center'> Klusterbud is a Kubernetes developers tool used to detect anomalies in the performance of nodes within a replica set.</h4>
 
 <div align='center'>
 
@@ -31,11 +31,32 @@ Users can choose from a dropdown list of replica sets in their cluster, and star
 
 ## Table of Contents
 
+- [About KlusterBud](#about-klusterbud)
+- [Vision Timeline](#vision-timeline)
 - [Getting Started](#getting-started-using-klusterbud)
 - [Demo](#demo)
 - [Publications](#publications)
 - [Website](#website)
 - [Contributors](#contributors)
+
+## About Klusterbud
+
+KlusterBud makes PromQL queries to the user's running instance of prometheus, collecting metrics from nodes and comparing them to other nodes within the same replica set. When an anomaly is found, the identifying information of the node is served back to the user. Users can choose from a dropdown list of replica sets in their cluster, and start watching for any anomalies.
+
+## Vision Timeline
+
+- ✅ Develop application to pull CPU resonse time from a replica set
+- ✅ Consolidate data from a replica set to isolate a single outlier node within it
+- ⏳ Containerize application to be deployed directly on monitored cluster
+  - ⏳ Remove need for the user to manually initialize their own Prometheus server
+- ⏳ Develop functionality for monitoring multiple replica sets concurrently
+- 🤝 Allow users to input their own margins and metrics to define outlier nodes
+- 🤝 Develop live monitoring features for a production workflow
+- 🤝 Generate live monitoring visualization
+
+✅ = Completed
+⏳ = Coming soon
+🤝 = Seeking Support
 
 ## Getting Started Using KlusterBud
 
