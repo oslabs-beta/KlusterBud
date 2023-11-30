@@ -56,7 +56,7 @@ KlusterBud makes PromQL queries to the user's running instance of prometheus, co
 
 - Have Prometheus installed on Kubernetes cluster
 - Have Prometheus port-forwarded to `localhost:9090`
-- Install the dependencies
+- Run these commands
 
   - ```js
     npm install
@@ -74,11 +74,11 @@ KlusterBud makes PromQL queries to the user's running instance of prometheus, co
 
 ## Publications
 
-[![Medium Badge](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)]()
+[![Medium Badge](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@AMitchell-Smith/klusterbud-k8s-anomaly-detection-made-simple-060ca496aebc)
 
 ## Website
 
-### Check out our [Website]() and [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/company/klusterbud)
+### Check out our [Website](https://www.klusterbud.com) and [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/company/klusterbud)
 
 ## Contributors:
 
@@ -88,6 +88,6 @@ KlusterBud makes PromQL queries to the user's running instance of prometheus, co
 
 ### <p text align ='center'>Fredy Rubio</p> <p text align ='center'>[![GitHub Badge](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/FredyRubio) [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fredy-rubio/)</p>
 
-### <p text align ='center'>Michael Wang</p> <p text align ='center'>[![GitHub Badge](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mwang934) [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)]()</p>
+### <p text align ='center'>Michael Wang</p> <p text align ='center'>[![GitHub Badge](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mwang934) [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](www.linkedin.com/in/michael-w-9475412a2)</p>
 
 [Back to top of page](#klusterbud)
