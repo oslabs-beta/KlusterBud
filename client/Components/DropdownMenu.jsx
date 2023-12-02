@@ -12,6 +12,7 @@ export const DropdownMenu = (props) => {
             <option id='replica-menu' value ="">
                 select a replica set
             </option>
+            {/* map our array of replica sets to an array of 'option' elements to populate our dropdown*/}
             {props.replicaSets.map((value, index) => (
                     <option key={index} value={value}>
                         {value}
