@@ -7,6 +7,7 @@ RSController.fetch = (req, res, next) => {
     .then(response => response.json())
     .then(data => {
         const replicaSets = [];
+        // populate the replicaSets array with the name(stored under 'deployment') of every replica set
         data.data.result.forEach(element => {
             replicaSets.push(element.metric.deployment);
         });

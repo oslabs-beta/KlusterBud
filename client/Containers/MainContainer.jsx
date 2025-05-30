@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "axios"; // not using axios just yet, possible iteration
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Container, Button } from "react-bootstrap";
 import { ReplicaSetSelector } from "../Components/DropdownMenu";
@@ -9,31 +9,22 @@ import { DropDownContainer } from "./DropDownContainer";
 import { NodeIDContainer } from "./NodeIDContainer";
 
 
-//possibly delete button on line 36?
-const MainContainer = () => {
-    const [replicaSets,  setReplicaSets] = useState([]);
-    const [selectedRS, setSelectedRS] = useState('');
-    const [abnormalNode, setAbnormalNode] = useState(null);
-    const [medianTime, setMedianTime] = useState('');
-    const [watchInterval, setWatchInterval] = useState(null);
 
-    // const query = () => {
-    //     const url = '/query/container_cpu_usage_seconds_total'
-    //     console.log(url)
-    //     //http://localhost:3000/query/up
-    //     fetch(url)
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         document.getElementById('info').innerText = JSON.stringify(data, null, 2);
-    //     })
-    //     .catch(err => console.log('ERROR:', err))
-    // }
+const MainContainer = () => {
+    const [replicaSets,  setReplicaSets] = useState([]); //array of names of replica sets in our cluster
+    const [selectedRS, setSelectedRS] = useState(''); //the name of the replica set selected by the user from the dropdown
+    const [abnormalNode, setAbnormalNode] = useState(null); //the name of the node behaving abnormally(within our selected replica set)
+    const [medianTime, setMedianTime] = useState(''); //the median cpu response time from nodes in our selected replica set
+    const [watchInterval, setWatchInterval] = useState(null); //indicates whether we should be actively watching (we watch by fetching repeatedly at an interval)
+
 
     useEffect(() => {
+        //the getRS function sends a request to /loadRS, and expects an array of replica set names as a response.
         function getRS() {
             fetch('/loadRS')
             .then(response => response.json())
             .then(data => {
+                //we then use the setReplicaSet setter function to set this piece of state to that array of replica set names.
                 setReplicaSets(data.result);
                 document.getElementById('info').innerText = JSON.stringify(data.result, null, 2);
             })
@@ -42,18 +33,19 @@ const MainContainer = () => {
         getRS();
     }, [])
 
+
     const handleWatchButtonClick = () => {
-        if(watchInterval){
-            clearInterval(watchInterval);
-            setWatchInterval(null)
+        if(watchInterval){ // if detects the anomaly stops repeating
+            clearInterval(watchInterval); // to stop repeating 
+            setWatchInterval(null) // set the interval back to null 
             setAbnormalNode(null)
             setMedianTime("")
         } else {
             handleAbnormalNode();
             const intervalId = setInterval(()=> {
                 handleAbnormalNode();
-            },3000);
-            setWatchInterval(intervalId);
+            },3000); // every 3s its repeating the functionallity 
+            setWatchInterval(intervalId);  // set the state of watchInterval to intervalId so it stops iterating
         }
     };
 
@@ -62,10 +54,10 @@ const MainContainer = () => {
         .then(response => response.json())
         .then(data => {
         if(data.abnormalNodeFound === true){
-            setAbnormalNode(data.result)
+            setAbnormalNode(data.result) // sets the result state to the abnormal it found
             setMedianTime(data.median)
-            clearInterval(watchInterval);
-            setWatchInterval(null);
+            clearInterval(watchInterval); // stops repeating reading through
+            setWatchInterval(null); // set state back to null (false)
         }else{
         setAbnormalNode(data.result)
         setMedianTime(data.median)}

@@ -24,15 +24,7 @@ app.use('/', express.static(path.resolve(__dirname, '../dist')))
 app.get('/', (req, res) => {
     return res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'));
 })
-
-app.get('/watchRS', (req, res) => {
-    //also grab the specific name of the replica set we are watching from params or smthn
-    res.status(200).json({result: {
-        anomaly: true,
-        nodeID: "destroy-prod-86568647b5-7w5l2"
-    }})
-})
-
+//gets names of replica sets from prometheus server, sends them to front end in an array
 app.get('/loadRS', RSController.fetch, (req, res) => {
     res.status(200).json({result: res.locals.replicaSets})
 })
@@ -40,7 +32,3 @@ app.get('/loadRS', RSController.fetch, (req, res) => {
 app.get('/query/:string', queryController.fetch, queryController.sort, (req, res) => {
     res.status(200).json({ result: res.locals.pod, median: res.locals.medianSec, abnormalNodeFound: res.locals.errorFound })
 })
-
-// app.get('/query', queryController.fetch, (req, res) => {
-//     res.status(200).json(res.locals.data);
-// })
